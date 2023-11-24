@@ -22,17 +22,28 @@ int	print_string(char *str)
 	unsigned int	i;
 
 	i = 0;
+	if (!str)
+		return (write(1, "(null)", 6));
 	while (str[i])
 		print_char(str[i++]);
 	return (i);
 }
 
-int	print_pointer(void *ptr)
+int	print_pointer(uintptr_t nbr, int flag)
 {
-	int	count;
+	unsigned int	base_len;
+	unsigned int	count;
+	char			*base;
 
-	if (!ptr)
-		return (0);
+	base = "0123456789abcdef";
+	base_len = 16;
 	count = 0;
-	return (count);
+	if (!nbr && flag)
+		return (write(1, "(nil)", 5));
+	if (flag)
+		count += write(1, "0x", 2);
+	if (nbr >= base_len)
+		count += print_pointer(nbr / base_len, 0);
+	write(1, &base[nbr % base_len], 1);
+	return (count + 1);
 }

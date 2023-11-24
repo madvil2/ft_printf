@@ -22,19 +22,19 @@ static int	print_format(char specifier, va_list ap)
 	else if (specifier == 's')
 		count += print_string(va_arg(ap, char *));
 	else if (specifier == 'p')
-		count += print_pointer(va_arg(ap, void *));
+		count += print_pointer(va_arg(ap, uintptr_t), 1);
 	else if (specifier == 'd')
-		count += ft_putnbr_base((long)va_arg(ap, int), "0123456789");
+		count += ft_putnbr_base((long)va_arg(ap, int), DEC);
 	else if (specifier == 'i')
-		count += ft_putnbr_base((long)va_arg(ap, int), "0123456789");
+		count += ft_putnbr_base((long)va_arg(ap, int), DEC);
 	else if (specifier == 'u')
-		write(1, "todo", 4);
+		count += ft_putnbr_base((long)va_arg(ap, unsigned int), DEC);
 	else if (specifier == 'x')
-		count += ft_putnbr_base((long)va_arg(ap, unsigned int), "0123456789abcdef");
+		count += ft_putnbr_base((long)va_arg(ap, unsigned int), HEX);
 	else if (specifier == 'X')
-		count += ft_putnbr_base((long)va_arg(ap, unsigned int), "0123456789ABCDEF");
+		count += ft_putnbr_base((long)va_arg(ap, unsigned int), HEX_U);
 	else if (specifier == '%')
-		write(1, "todo", 4);
+		count += print_char('%');
 	else
 		count += write(1, &specifier, 1);
 	return (count);

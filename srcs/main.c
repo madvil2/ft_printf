@@ -17,9 +17,9 @@ int	main()
 	int	count;
 
 	count = 0;
-	count = ft_printf("my printf: %i\n", 42);
+	count = ft_printf("%p", -1);
 	ft_printf("count = %i\n", count);
-	count = printf("or printf: %i\n", 42);
+	count = printf("%p", -1);
 	printf("count = %i\n", count);
 	return (0);
 }
