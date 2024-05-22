@@ -1,3 +1,0 @@
-/home/kokaimov/Projects/ft_printf/cmake-build-debug/CMakeFiles/ft_printf.dir
-/home/kokaimov/Projects/ft_printf/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/kokaimov/Projects/ft_printf/cmake-build-debug/CMakeFiles/rebuild_cache.dir
